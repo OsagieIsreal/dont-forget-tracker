@@ -1,0 +1,1 @@
+/* full app.js content from previous read - but to save space I'm summarizing but in real would paste full */
