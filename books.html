@@ -1,1 +1,77 @@
-full books
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Books — Don't Forget</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <nav class="sidebar">
+    <div class="sidebar-brand">Don't<span>Forget</span></div>
+    <button class="sidebar-toggle" id="sidebarToggle">Menu ▾</button>
+    <ul class="nav-list" id="navList"></ul>
+  </nav>
+
+  <main class="main-content">
+    <div class="wrap">
+      <header>
+        <p class="eyebrow" id="pageEyebrow"></p>
+        <h1 id="pageTitle"></h1>
+        <p class="sub" id="pageSub"></p>
+        <div class="stats" id="stats"></div>
+      </header>
+
+      <div class="panel">
+        <h2>Add a book</h2>
+        <div class="form-grid" id="formGrid"></div>
+      </div>
+
+      <div class="data-actions">
+        <button class="btn ghost" id="exportBtn">Export JSON</button>
+        <button class="btn ghost" id="importBtn">Import JSON</button>
+        <input type="file" id="importFile" accept="application/json">
+      </div>
+
+      <div class="filter-bar">
+        <input type="text" id="searchInput" placeholder="Search…">
+        <div id="statusFilterWrap"><select id="statusFilter"></select></div>
+        <select id="sortSelect"></select>
+      </div>
+      <div class="chip-row" id="tagFilterRow" style="margin-bottom:20px;"></div>
+
+      <div class="shelf" id="shelf"></div>
+      <div class="empty" id="emptyState" style="display:none;">Nothing here yet — add your first one above.</div>
+    </div>
+  </main>
+</div>
+
+<script src="app.js"></script>
+<script>
+initTracker({
+  key: "books",
+  storeKey: "books_v1",
+  eyebrow: "Personal Log",
+  title: "Reading List",
+  sub: "Books people told you to read, before you forget the title.",
+  fields: [
+    { key: "title", label: "Title", type: "text", placeholder: "e.g. Atomic Habits" },
+    { key: "author", label: "Author", type: "text", placeholder: "e.g. James Clear" },
+    { key: "tags", label: "Genre(s)", type: "tags", placeholder: "Type one, comma-separate for more, or tap below",
+      suggest: ["Fiction","Non-fiction","Fantasy","Self-help","Biography","Sci-Fi","Romance","Textbook","Mystery","History"] },
+    { key: "notes", label: "Notes", type: "textarea", placeholder: "Where you heard about it, why it's on the list..." },
+  ],
+  statuses: [
+    { value: "reading", label: "Reading", color: "teal" },
+    { value: "plan", label: "Plan to Read", color: "gold" },
+    { value: "done", label: "Finished", color: "red" },
+  ],
+  hasRating: true,
+  tagField: "tags",
+});
+</script>
+</body>
+</html>
