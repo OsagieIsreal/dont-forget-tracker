@@ -1,1 +1,44 @@
-full index
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Don't Forget</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <nav class="sidebar">
+    <div class="sidebar-brand">Don't<span>Forget</span></div>
+    <button class="sidebar-toggle" id="sidebarToggle">Menu ▾</button>
+    <ul class="nav-list" id="navList"></ul>
+  </nav>
+
+  <main class="main-content">
+    <div class="wrap">
+      <header>
+        <p class="eyebrow">Overview</p>
+        <h1>Dashboard</h1>
+        <p class="sub">Everything you told yourself you wouldn't forget, in one place.</p>
+      </header>
+
+      <div class="dash-grid" id="dashGrid"></div>
+    </div>
+  </main>
+</div>
+
+<script src="app.js"></script>
+<script>
+  initDashboard([
+    { key: "anime", storeKey: "anime_shelf_v1", label: "Anime", icon: "🎬", href: "anime.html", color: "red", activeStatus: "watching", activeLabel: "watching" },
+    { key: "books", storeKey: "books_v1", label: "Books", icon: "📚", href: "books.html", color: "teal", activeStatus: "reading", activeLabel: "reading" },
+    { key: "movies", storeKey: "movies_v1", label: "Movies/TV", icon: "🍿", href: "movies.html", color: "purple", activeStatus: "watching", activeLabel: "watching" },
+    { key: "budget", storeKey: "budget_v1", label: "Budget", icon: "💰", href: "budget.html", color: "gold", priceField: "price" },
+    { key: "assignments", storeKey: "assignments_v1", label: "Assignments", icon: "📝", href: "assignments.html", color: "blue", dueField: "dueDate", doneStatus: "done" },
+    { key: "goals", storeKey: "goals_v1", label: "Goals/Ideas", icon: "💡", href: "goals.html", color: "teal", activeStatus: "inprogress", activeLabel: "in progress" },
+  ]);
+</script>
+</body>
+</html>
